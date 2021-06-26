@@ -42328,30 +42328,30 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2021-06-17,Colombia,Venezuela,0,0,Copa América,Goiânia,Brazil,TRUE
 2021-06-17,Brazil,Peru,4,0,Copa América,Rio de Janeiro,Brazil,FALSE
 2021-06-17,Algeria,Liberia,5,1,Friendly,Oran,Algeria,FALSE
-2021-06-18,Croatia,Czech Republic,NA,NA,UEFA Euro,Glasgow,Scotland,TRUE
-2021-06-18,England,Scotland,NA,NA,UEFA Euro,London,England,FALSE
-2021-06-18,Sweden,Slovakia,NA,NA,UEFA Euro,Saint Petersburg,Russia,TRUE
+2021-06-18,Croatia,Czech Republic,1,1,UEFA Euro,Glasgow,Scotland,TRUE
+2021-06-18,England,Scotland,0,0,UEFA Euro,London,England,FALSE
+2021-06-18,Sweden,Slovakia,1,0,UEFA Euro,Saint Petersburg,Russia,TRUE
 2021-06-18,Chile,Bolivia,NA,NA,Copa América,Cuiaba,Brazil,TRUE
 2021-06-18,Argentina,Uruguay,NA,NA,Copa América,Brasilia,Brazil,TRUE
-2021-06-19,Spain,Poland,NA,NA,UEFA Euro,Seville,Spain,FALSE
-2021-06-19,Hungary,France,NA,NA,UEFA Euro,Budapest,Hungary,FALSE
-2021-06-19,Germany,Portugal,NA,NA,UEFA Euro,Munich,Germany,FALSE
-2021-06-20,Italy,Wales,NA,NA,UEFA Euro,Rome,Italy,FALSE
-2021-06-20,Switzerland,Turkey,NA,NA,UEFA Euro,Baku,Azerbaijan,TRUE
+2021-06-19,Spain,Poland,1,1,UEFA Euro,Seville,Spain,FALSE
+2021-06-19,Hungary,France,1,1,UEFA Euro,Budapest,Hungary,FALSE
+2021-06-19,Germany,Portugal,4,2,UEFA Euro,Munich,Germany,FALSE
+2021-06-20,Italy,Wales,1,0,UEFA Euro,Rome,Italy,FALSE
+2021-06-20,Switzerland,Turkey,3,1,UEFA Euro,Baku,Azerbaijan,TRUE
 2021-06-20,Venezuela,Ecuador,NA,NA,Copa América,Rio de Janeiro,Brazil,TRUE
 2021-06-20,Colombia,Peru,NA,NA,Copa América,Goiânia,Brazil,TRUE
-2021-06-21,Denmark,Russia,NA,NA,UEFA Euro,Copenhagen,Denmark,FALSE
-2021-06-21,Finland,Belgium,NA,NA,UEFA Euro,Saint Petersburg,Russia,TRUE
-2021-06-21,Netherlands,North Macedonia,NA,NA,UEFA Euro,Amsterdam,Netherlands,FALSE
-2021-06-21,Ukraine,Austria,NA,NA,UEFA Euro,Bucharest,Romania,TRUE
+2021-06-21,Denmark,Russia,4,1,UEFA Euro,Copenhagen,Denmark,FALSE
+2021-06-21,Finland,Belgium,0,2,UEFA Euro,Saint Petersburg,Russia,TRUE
+2021-06-21,Netherlands,North Macedonia,3,0,UEFA Euro,Amsterdam,Netherlands,FALSE
+2021-06-21,Ukraine,Austria,0,1,UEFA Euro,Bucharest,Romania,TRUE
 2021-06-21,Uruguay,Chile,NA,NA,Copa América,Cuiaba,Brazil,TRUE
 2021-06-21,Argentina,Paraguay,NA,NA,Copa América,Brasilia,Brazil,TRUE
-2021-06-22,Scotland,Croatia,NA,NA,UEFA Euro,Glasgow,Scotland,FALSE
-2021-06-22,England,Czech Republic,NA,NA,UEFA Euro,London,England,FALSE
-2021-06-23,Spain,Slovakia,NA,NA,UEFA Euro,Seville,Spain,FALSE
-2021-06-23,Sweden,Poland,NA,NA,UEFA Euro,Saint Petersburg,Russia,TRUE
-2021-06-23,Germany,Hungary,NA,NA,UEFA Euro,Munich,Germany,FALSE
-2021-06-23,Portugal,France,NA,NA,UEFA Euro,Budapest,Hungary,TRUE
+2021-06-22,Scotland,Croatia,1,3,UEFA Euro,Glasgow,Scotland,FALSE
+2021-06-22,England,Czech Republic,1,0,UEFA Euro,London,England,FALSE
+2021-06-23,Spain,Slovakia,0,0,UEFA Euro,Seville,Spain,FALSE
+2021-06-23,Sweden,Poland,0,0,UEFA Euro,Saint Petersburg,Russia,TRUE
+2021-06-23,Germany,Hungary,0,0,UEFA Euro,Munich,Germany,FALSE
+2021-06-23,Portugal,France,0,0,UEFA Euro,Budapest,Hungary,TRUE
 2021-06-23,Ecuador,Peru,NA,NA,Copa América,Goiânia,Brazil,TRUE
 2021-06-23,Brazil,Colombia,NA,NA,Copa América,Rio de Janeiro,Brazil,FALSE
 2021-06-24,Bolivia,Uruguay,NA,NA,Copa América,Cuiaba,Brazil,TRUE

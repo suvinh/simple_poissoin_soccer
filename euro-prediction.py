@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import datetime
 import asyncio
 import aiohttp
@@ -11,14 +13,18 @@ import nest_asyncio
 nest_asyncio.apply()
 
 date_id = 'id13295'
-fifa_url = 'https://www.fifa.com/fifa-world-ranking/ranking-table/men/rank'
+fifa_url = 'https://www.fifa.com/fifa-world-ranking/men'
 
 def get_dates_html():
-    page_source = r.get(f'{fifa_url}/{date_id}/')
+    page_source = r.get(f'{fifa_url}?dateId={date_id}/')
+    print(page_source.content)
     page_source.raise_for_status()
     dates = BeautifulSoup(page_source.text, 
                           'html.parser', 
-                          parse_only=SoupStrainer('li', attrs={'class': 'fi-ranking-schedule__nav__item'}))
+                          # parse_only=SoupStrainer('li', attrs={'class': 'fi-ranking-schedule__nav__item'}))
+                          parse_only=SoupStrainer('tr', attrs={'class': 'fc-ranking-item-full_rankingTableFullRow__1nbp7'}))
+                          # parse_only=SoupStrainer('li'))
+    print(f"dates: {dates}")
     return dates
 
 
@@ -36,13 +42,14 @@ def create_dates_dataset(html_dates):
     return dataset
 
 dates_from_page = get_dates_html()
+sys.exit()
 dates_dataset = create_dates_dataset(dates_from_page)
 
 assert len(dates_from_page) == dates_dataset.shape[0], \
         "Number of dates in html and dataset don't match"
 
 async def get_rank_page(date_id, session):
-    async with session.get(f'{fifa_url}/{date_id}/') as response:
+    async with session.get(f'{fifa_url}?dateId={date_id}/') as response:
         page = await response.text()
         if response.status == 200:
             return {'page': page, 'id': date_id}
@@ -267,7 +274,7 @@ def predict(h_country, a_country, neutral=True):
 while True:
     home_team = input("Home team: ")
     away_team = input("Away team: ")
-    print(predict(home_team, away_team, False))
+    print(predict(home_team, away_team, True))
     cont = input("Do you wanna continue? ")
     if len(cont) == 0 or cont == "no":
         break

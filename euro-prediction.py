@@ -8,6 +8,13 @@ import pandas as pd
 import numpy as np
 from bs4 import BeautifulSoup, SoupStrainer
 import urllib, json
+from requests_html import HTMLSession
+from datetime import datetime
+
+import time
+from selenium import webdriver
+from selenium.webdriver.support.select import Select
+from time import sleep
 
 # for run asyncio in jupyter / https://github.com/jupyter/notebook/issues/3397
 import nest_asyncio
@@ -15,14 +22,76 @@ nest_asyncio.apply()
 
 date_id = 'id13295'
 fifa_url = 'https://www.fifa.com/api/ranking-overview'
+ranking_date = {date_id: datetime.strptime("2021-05-27", '%Y-%m-%d')}
+
+fifa_url2 = 'https://www.fifa.com/fifa-world-ranking/men'
+
+fifa_url3 = f'{fifa_url2}?dateId={date_id}/'
+
+'''
+story = 'https://medium.com/dropout-analytics/selenium-and-geckodriver-on-mac-b411dbfe61bc'
+story = story + '?source=friends_link&sk=18e2c2f07fbe1f8ae53fef5ad57dbb12'   # 'https://bit.ly/2WaKraO' <- short link
+
+def gecko_test(site_000=story):
+    """
+    simple overview:
+        1) set up webdriver
+        2) load this article 
+        3) close up shop 
+    
+    input:
+        >> site_000
+            > default: url of this article ('friend link')
+    """
+    # set the driver 
+    driver = webdriver.Firefox()
+
+    # load this article 
+    driver.get(site_000)
+    # and chill a bit
+    sleep(2)
+
+    # k, cool. let's bounce. 
+    driver.quit()
+
+gecko_test()
+sys.exit()
+'''
+
+def dateId_print():
+    driver = webdriver.Firefox()
+    driver.implicitly_wait(0.5)
+    driver.get(fifa_url3)
+    sleep(2)
+    sel = driver.find_element_by_id("onetrust-accept-btn-handler")
+    sel.click()
+    # sleep(2)
+    # sel = driver.find_element_by_xpath("//div[@id='__next']/div/main/section/div/div/div/div[2]/div/button/div/div/p[2]")
+    # sel.click()
+    # sel = driver.find_element_by_xpath("//div[@id='__next']/div/main/section/div/div/div/div[2]/div/div/button[2]")
+    # sel.click()
+    # print(driver.current_url)
+    for i in range(311):
+        sleep(1.5 + (311/(311 - i + 1))/100)
+        sel = driver.find_element_by_xpath("//div[@id='__next']/div/main/section/div/div/div/div[2]/div/button/div/div/p[2]")
+        sel.click()
+        sleep(0.5)
+        sel = driver.find_element_by_xpath(f"//div[@id='__next']/div/main/section/div/div/div/div[2]/div/div/button[{i+1}]")
+        sel.click()
+        print(driver.current_url.split('dateId=')[1])
+
+    driver.close()
 
 def get_dates_html():
-    # with HTMLSession() as session:
-    #     r = session.get(f'{fifa_url}?dateId={date_id}/')
-    #     r.html.render()
+    with HTMLSession() as session:
+        req = session.get(f'{fifa_url2}?dateId={date_id}/')
+        req.html.render()
+    filter_tag = SoupStrainer("button", {"class": "ff-dropdown_dropupContentButton__3WmBL"})
     # filter_tag = SoupStrainer("table", {"class": "fc-ranking-list-full_rankingTable__1u4hs"})
-    # soup = BeautifulSoup(r.html.html, 'lxml', parse_only=filter_tag)
-    # # print(soup)
+    soup = BeautifulSoup(req.html.html, 'html.parser', parse_only=filter_tag)
+    # print(soup)
+    buttons = soup.find_all('button')
+    print(len(buttons))
     # dates = []
     # body = soup.find('tbody')
     # # print(body)
@@ -36,10 +105,10 @@ def get_dates_html():
     url = f'{fifa_url}?locale=en&dateId={date_id}'
     response = r.get(url)
     data_json = response.json()['rankings']
-    # print(data_json['rankings'])
+    print(data_json)
     dates = []
-    for data in data_json:
-        dates.append(data['rankingItem'])
+    # for data in data_json:
+        # dates.append(data['rankingItem'])
         # print(data)
     print(dates)
 
@@ -59,8 +128,9 @@ def create_dates_dataset(html_dates):
     
     return dataset
 
-dates_from_page = get_dates_html()
+dateId_print()
 sys.exit()
+dates_from_page = get_dates_html()
 dates_dataset = create_dates_dataset(dates_from_page)
 
 assert len(dates_from_page) == dates_dataset.shape[0], \
@@ -93,7 +163,7 @@ def scrapy_rank_table(page, date):
             'previous_points': row.find('td', {'class': 'fi-table__prevpoints'}).text or 0,
             'rank_change': int(row.find('td', {'class': 'fi-table__rankingmovement'}).text.replace('-', '0')),
             'confederation': row.find('td', {'class': 'fi-table__confederation'}).text.strip('#'),
-            'rank_date': date
+            'rank_date': ranking_date[date_id]
         })
     return table
     

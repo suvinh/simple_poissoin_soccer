@@ -7,24 +7,42 @@ import requests as r
 import pandas as pd
 import numpy as np
 from bs4 import BeautifulSoup, SoupStrainer
+import urllib, json
 
 # for run asyncio in jupyter / https://github.com/jupyter/notebook/issues/3397
 import nest_asyncio
 nest_asyncio.apply()
 
 date_id = 'id13295'
-fifa_url = 'https://www.fifa.com/fifa-world-ranking/men'
+fifa_url = 'https://www.fifa.com/api/ranking-overview'
 
 def get_dates_html():
-    page_source = r.get(f'{fifa_url}?dateId={date_id}/')
-    print(page_source.content)
-    page_source.raise_for_status()
-    dates = BeautifulSoup(page_source.text, 
-                          'html.parser', 
-                          # parse_only=SoupStrainer('li', attrs={'class': 'fi-ranking-schedule__nav__item'}))
-                          parse_only=SoupStrainer('tr', attrs={'class': 'fc-ranking-item-full_rankingTableFullRow__1nbp7'}))
-                          # parse_only=SoupStrainer('li'))
-    print(f"dates: {dates}")
+    # with HTMLSession() as session:
+    #     r = session.get(f'{fifa_url}?dateId={date_id}/')
+    #     r.html.render()
+    # filter_tag = SoupStrainer("table", {"class": "fc-ranking-list-full_rankingTable__1u4hs"})
+    # soup = BeautifulSoup(r.html.html, 'lxml', parse_only=filter_tag)
+    # # print(soup)
+    # dates = []
+    # body = soup.find('tbody')
+    # # print(body)
+    # rows = body.find_all('tr')
+    # for row in rows:
+    #     cols = row.find_all('td')
+    #     cols = [ele.text.strip() for ele in cols]
+    #     dates.append([ele for ele in cols if ele])
+    # print(dates)
+
+    url = f'{fifa_url}?locale=en&dateId={date_id}'
+    response = r.get(url)
+    data_json = response.json()['rankings']
+    # print(data_json['rankings'])
+    dates = []
+    for data in data_json:
+        dates.append(data['rankingItem'])
+        # print(data)
+    print(dates)
+
     return dates
 
 

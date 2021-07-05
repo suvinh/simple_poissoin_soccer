@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+
+import aiohttp
+import asyncio
+import json
+from bs4 import BeautifulSoup, SoupStrainer
+
+date_id = 'id13295'
+fifa_url2 = 'https://www.fifa.com/fifa-world-ranking/men'
+
+async def main():
+
+    async with aiohttp.ClientSession() as session:
+        async with session.get(f"{fifa_url2}?dateId={date_id}/") as response:
+
+            print("Status:", response.status)
+            print("Content-type:", response.headers['content-type'])
+
+            data = await response.text()
+            # print(data)
+            # j = json.loads(data)
+            # print(type(j))
+            # Json = json.loads(data.decode('utf-8'))
+            # print("Body:", Json, "...")
+            rows = str(BeautifulSoup(data, 
+                          'html.parser', 
+                          parse_only=SoupStrainer('script', {"id": "__NEXT_DATA__"}))).split('>')[1].split('<')[0]
+            parse_json = json.loads(rows)
+            date_ids = parse_json['props']['pageProps']['pageData']['ranking']['dates']
+            print(type(date_ids))
+            print(date_ids)
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(main())

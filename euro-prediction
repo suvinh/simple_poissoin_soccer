@@ -9,7 +9,7 @@ import numpy as np
 from bs4 import BeautifulSoup, SoupStrainer
 import urllib, json
 from requests_html import HTMLSession
-from datetime import datetime
+# from datetime import datetime
 
 import time
 from selenium import webdriver
@@ -20,13 +20,43 @@ from time import sleep
 import nest_asyncio
 nest_asyncio.apply()
 
+teams_id = {}
+i = 0
+
 date_id = 'id13295'
+# date_id = 'id64'
 fifa_url = 'https://www.fifa.com/api/ranking-overview'
-ranking_date = {date_id: datetime.strptime("2021-05-27", '%Y-%m-%d')}
 
 fifa_url2 = 'https://www.fifa.com/fifa-world-ranking/men'
 
-fifa_url3 = f'{fifa_url2}?dateId={date_id}/'
+async def get_dates_html():
+
+    async with aiohttp.ClientSession() as session:
+        async with session.get(f"{fifa_url2}?dateId={date_id}/") as response:
+        # async with session.get(f"{fifa_url}?locale=en&dateId={date_id}") as response:
+            data = await response.text()
+            # print(data)
+            # j = json.loads(data)
+            # print(type(j))
+            # Json = json.loads(data.decode('utf-8'))
+            # print("Body:", Json, "...")
+            # rows = BeautifulSoup(data, 
+            #               'html.parser', 
+            #               parse_only=SoupStrainer('tbody')).find_all('tr')
+            # print(rows)
+            json_str = str(BeautifulSoup(data, 
+                          'html.parser', 
+                          parse_only=SoupStrainer('script', {"id": "__NEXT_DATA__"}))).split('>')[1].split('<')[0]
+            parse_json = json.loads(json_str)
+            date_ids = parse_json['props']['pageProps']['pageData']['ranking']['dates']
+            # print(type(date_ids))
+            return date_ids
+
+# loop = asyncio.get_event_loop()
+# loop.run_until_complete(get_dates_html())
+# sys.exit()
+
+# fifa_url3 = f'{fifa_url2}?dateId={date_id}/'
 
 '''
 story = 'https://medium.com/dropout-analytics/selenium-and-geckodriver-on-mac-b411dbfe61bc'
@@ -58,86 +88,107 @@ gecko_test()
 sys.exit()
 '''
 
-def dateId_print():
-    driver = webdriver.Firefox()
-    driver.implicitly_wait(0.5)
-    driver.get(fifa_url3)
-    sleep(2)
-    sel = driver.find_element_by_id("onetrust-accept-btn-handler")
-    sel.click()
-    # sleep(2)
-    # sel = driver.find_element_by_xpath("//div[@id='__next']/div/main/section/div/div/div/div[2]/div/button/div/div/p[2]")
-    # sel.click()
-    # sel = driver.find_element_by_xpath("//div[@id='__next']/div/main/section/div/div/div/div[2]/div/div/button[2]")
-    # sel.click()
-    # print(driver.current_url)
-    for i in range(311):
-        sleep(1.5 + (311/(311 - i + 1))/100)
-        sel = driver.find_element_by_xpath("//div[@id='__next']/div/main/section/div/div/div/div[2]/div/button/div/div/p[2]")
-        sel.click()
-        sleep(0.5)
-        sel = driver.find_element_by_xpath(f"//div[@id='__next']/div/main/section/div/div/div/div[2]/div/div/button[{i+1}]")
-        sel.click()
-        print(driver.current_url.split('dateId=')[1])
+# def dateId_print():
+#     driver = webdriver.Firefox()
+#     driver.implicitly_wait(0.5)
+#     driver.get(fifa_url3)
+#     sleep(2)
+#     sel = driver.find_element_by_id("onetrust-accept-btn-handler")
+#     sel.click()
+#     # sleep(2)
+#     # sel = driver.find_element_by_xpath("//div[@id='__next']/div/main/section/div/div/div/div[2]/div/button/div/div/p[2]")
+#     # sel.click()
+#     # sel = driver.find_element_by_xpath("//div[@id='__next']/div/main/section/div/div/div/div[2]/div/div/button[2]")
+#     # sel.click()
+#     # print(driver.current_url)
+#     for i in range(311):
+#         sleep(1.5 + (311/(311 - i + 1))/100)
+#         sel = driver.find_element_by_xpath("//div[@id='__next']/div/main/section/div/div/div/div[2]/div/button/div/div/p[2]")
+#         sel.click()
+#         sleep(0.5)
+#         sel = driver.find_element_by_xpath(f"//div[@id='__next']/div/main/section/div/div/div/div[2]/div/div/button[{i+1}]")
+#         sel.click()
+#         print(driver.current_url.split('dateId=')[1])
 
-    driver.close()
+#     driver.close()
 
-def get_dates_html():
-    with HTMLSession() as session:
-        req = session.get(f'{fifa_url2}?dateId={date_id}/')
-        req.html.render()
-    filter_tag = SoupStrainer("button", {"class": "ff-dropdown_dropupContentButton__3WmBL"})
-    # filter_tag = SoupStrainer("table", {"class": "fc-ranking-list-full_rankingTable__1u4hs"})
-    soup = BeautifulSoup(req.html.html, 'html.parser', parse_only=filter_tag)
+# def get_dates_html():
+    # with HTMLSession() as session:
+    #     req = session.get(f'{fifa_url2}?dateId={date_id}/')
+    #     req.html.render()
+
+    # filter_tag = SoupStrainer("button", {"class": "ff-dropdown_dropupContentButton__3WmBL"})
+    # filter_tag = SoupStrainer("div", {"class": "container"})
+    # soup = BeautifulSoup(req.html.html, 'html.parser', parse_only=filter_tag).find_all('tr')
+    #filter_tag = SoupStrainer("table", {"class": "fc-ranking-list-full_rankingTable__1u4hs"})
+    # filter_tag = SoupStrainer('tbody')
+    #soup = BeautifulSoup(req.html.html, 'html.parser', parse_only=filter_tag).find_all('tr', {"class": "fc-ranking-item-full_rankingTableFullRow__1nbp7"})
+    #print("Soup:")
+    #print(soup)
+    #aaaaa = [table.text.strip() for table in soup]
+    #print("aaaaaa")
+    #print(aaaaa)
     # print(soup)
-    buttons = soup.find_all('button')
-    print(len(buttons))
+    # buttons = soup.find_all('button')
+    # print(len(buttons))
     # dates = []
     # body = soup.find('tbody')
     # # print(body)
-    # rows = body.find_all('tr')
+    # trs = soup.find_all('tr')
+    # print(trs)
+    # aaaaa = [tr.text.strip() for tr in trs]
+    # print(aaaaa)
+    # p = soup.find_all("p", {"class": "ff-text-blue-cinema"})
+    # print(p[0])
+    # print(type(p[0]))
+    # print(p[0].contents[0])
     # for row in rows:
     #     cols = row.find_all('td')
     #     cols = [ele.text.strip() for ele in cols]
     #     dates.append([ele for ele in cols if ele])
     # print(dates)
 
-    url = f'{fifa_url}?locale=en&dateId={date_id}'
-    response = r.get(url)
-    data_json = response.json()['rankings']
-    print(data_json)
-    dates = []
+    # url = f'{fifa_url}?locale=en&dateId={date_id}'
+    # response = r.get(url)
+    # data_json = response.json()['rankings']
+    # print(data_json)
+    # dates = []
     # for data in data_json:
         # dates.append(data['rankingItem'])
         # print(data)
-    print(dates)
+    # print(dates)
 
-    return dates
+    # return date÷s
 
 
 def create_dates_dataset(html_dates):
-    date_ids = [li['data-value'] for li in html_dates]
-    dates = [li.text.strip() for li in html_dates]
+    date_ids = [li['id'] for li in html_dates]
+    # print(date_ids)
+    dates = [li['text'] for li in html_dates]
+    # print(dates)
     dataset = pd.DataFrame(data={'date': dates, 'date_id': date_ids})
+    # print(dataset)
     
     # convert 'date' from str to datetime and sorting "old -> new"
-    dataset['date'] = pd.to_datetime(dataset['date'], format='%d %B %Y')
+    dataset['date'] = pd.to_datetime(dataset['date'], format='%d %b %Y')
     dataset.sort_values('date', ignore_index=True, inplace=True)
     assert dataset.date.min() == dataset.iloc[0].date, \
             "Incorrect dataset sorting"
     
     return dataset
 
-dateId_print()
-sys.exit()
-dates_from_page = get_dates_html()
+# dateId_print()
+# dates_from_page = get_dates_html()
+dates_from_page = asyncio.run(get_dates_html())
+# print(dates_from_page)
 dates_dataset = create_dates_dataset(dates_from_page)
+# print(dates_dataset)
 
 assert len(dates_from_page) == dates_dataset.shape[0], \
         "Number of dates in html and dataset don't match"
 
 async def get_rank_page(date_id, session):
-    async with session.get(f'{fifa_url}?dateId={date_id}/') as response:
+    async with session.get(f'{fifa_url}?locale=en&dateId={date_id}') as response:
         page = await response.text()
         if response.status == 200:
             return {'page': page, 'id': date_id}
@@ -147,23 +198,35 @@ async def get_rank_page(date_id, session):
         
         
 def scrapy_rank_table(page, date):
-    rows = BeautifulSoup(page, 
-                          'html.parser', 
-                          parse_only=SoupStrainer('tbody')).find_all('tr')
+    global teams_id
+    global i
+    # rows = BeautifulSoup(page, 
+    #                       'html.parser', 
+    #                       parse_only=SoupStrainer('tbody')).find_all('tr')
+    rows = json.loads(page)['rankings']
+    if rows == None:
+        print("207: date: ", date)
+
     table = []
     for row in rows:
+        if row['rankingItem']['name'] in teams_id:
+            id = teams_id[row['rankingItem']['name']]
+        else:
+            i += 1
+            teams_id[row['rankingItem']['name']] = i
+            id = i
         table.append({
-            'id': int(row['data-team-id']), 
-            'country_full': row.find('span', {'class': 'fi-t__nText'}).text, 
-            'country_abrv': row.find('span', {'class': 'fi-t__nTri'}).text,
-            'rank': int(row.find('td', {'class': 'fi-table__rank'}).text), 
+            'id': id, 
+            'country_full': row['rankingItem']['name'], 
+            'country_abrv': row['rankingItem']['countryCode'],
+            'rank': int(row['rankingItem']['rank']), 
             #'total_points': int(row.find('td', {'class': 'fi-table__points'}).text),
-            'total_points': row.find('td', {'class': 'fi-table__points'}).text,
+            'total_points': row['rankingItem']['totalPoints'],
             #'previous_points': int(row.find('td', {'class': 'fi-table__prevpoints'}).text or 0),
-            'previous_points': row.find('td', {'class': 'fi-table__prevpoints'}).text or 0,
-            'rank_change': int(row.find('td', {'class': 'fi-table__rankingmovement'}).text.replace('-', '0')),
-            'confederation': row.find('td', {'class': 'fi-table__confederation'}).text.strip('#'),
-            'rank_date': ranking_date[date_id]
+            'previous_points': row['previousPoints'],
+            'rank_change': abs(int(row['rankingItem']['rank'] - row['rankingItem']['previousRank'])),
+            'confederation': row['tag']['text'],
+            'rank_date': date
         })
     return table
     
@@ -184,9 +247,11 @@ async def parse_ranks(pages_df):
             task_parse += [asyncio.create_task(get_rank_page(date_id, session))]
     
         for task in asyncio.as_completed(task_parse):
+            await asyncio.sleep(0.15)
             page = await task
             if not task:
                 continue
+            # print(f"250: dateid: {pages_df.date_id}, pageid: {page['id']}, pagedf: {pages_df[pages_df.date_id == page['id']].date.iloc[0]}")
             date_ranking = scrapy_rank_table(page['page'], 
                                              pages_df[pages_df.date_id == page['id']].date.iloc[0])
             fifa_ranking = fifa_ranking.append(date_ranking, ignore_index=True)

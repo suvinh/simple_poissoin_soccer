@@ -330,7 +330,6 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 1912-06-20,Sweden,Hungary,2,2,Friendly,Gothenburg,Sweden,FALSE
 1912-06-23,Norway,Hungary,0,6,Friendly,Kristiania,Norway,FALSE
 1912-06-27,Sweden,Finland,7,1,Friendly,Solna,Sweden,FALSE
-1912-06-29,Austria,Germany,5,1,Friendly,Stockholm,Sweden,TRUE
 1912-06-30,Austria,Italy,5,1,Friendly,Stockholm,Sweden,TRUE
 1912-07-01,Austria,Norway,1,1,Friendly,Stockholm,Sweden,TRUE
 1912-07-03,Hungary,Austria,3,0,Friendly,Stockholm,Sweden,TRUE
@@ -1964,7 +1963,6 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 1937-02-21,Czechoslovakia,Switzerland,5,3,International Cup,Prague,Czechoslovakia,FALSE
 1937-03-07,Netherlands,Switzerland,2,1,Friendly,Amsterdam,Netherlands,FALSE
 1937-03-17,Wales,Northern Ireland,4,1,British Championship,Wrexham,Wales,FALSE
-1937-03-21,Austria,Italy,2,0,International Cup,Vienna,Austria,FALSE
 1937-03-21,Germany,France,4,0,Friendly,Stuttgart,Germany,FALSE
 1937-03-21,Luxembourg,Germany,2,3,Friendly,Luxembourg,Luxembourg,FALSE
 1937-04-04,Belgium,Netherlands,2,1,Friendly,Antwerp,Belgium,FALSE
@@ -2391,6 +2389,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 1942-01-17,Argentina,Brazil,2,1,Copa América,Montevideo,Uruguay,TRUE
 1942-01-18,Paraguay,Peru,1,1,Copa América,Montevideo,Uruguay,TRUE
 1942-01-18,Uruguay,Ecuador,7,0,Copa América,Montevideo,Uruguay,FALSE
+1942-01-18,Croatia,Germany,0,2,Friendly,Zagreb,Croatia,FALSE
 1942-01-21,Brazil,Peru,2,1,Copa América,Montevideo,Uruguay,TRUE
 1942-01-22,Argentina,Ecuador,12,0,Copa América,Montevideo,Uruguay,TRUE
 1942-01-22,Chile,Paraguay,0,2,Copa América,Montevideo,Uruguay,TRUE
@@ -40610,6 +40609,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2019-03-24,Haiti,Cuba,2,1,CONCACAF Nations League qualification,Port-au-Prince,Haiti,FALSE
 2019-03-24,Barbados,Nicaragua,0,1,CONCACAF Nations League qualification,Bridgetown,Barbados,FALSE
 2019-03-24,El Salvador,Jamaica,2,0,CONCACAF Nations League qualification,San Salvador,El Salvador,FALSE
+2019-03-25,Catalonia,Venezuela,2,1,Friendly,Girona,Spain,FALSE
 2019-03-25,Azerbaijan,Lithuania,0,0,Friendly,Baku,Azerbaijan,FALSE
 2019-03-25,Kuwait,Nepal,1,0,Friendly,Al Ahmadi,Kuwait,FALSE
 2019-03-25,Myanmar,Indonesia,0,2,Friendly,Mandalay,Myanmar,FALSE
@@ -41719,7 +41719,6 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2020-10-10,Faroe Islands,Latvia,1,1,UEFA Nations League,Tórshavn,Faroe Islands,FALSE
 2020-10-10,Andorra,Malta,0,0,UEFA Nations League,Andorra la Vella,Andorra,FALSE
 2020-10-10,Liechtenstein,Gibraltar,0,1,UEFA Nations League,Vaduz,Liechtenstein,FALSE
-2020-10-10,Cameroon,South Sudan,0,0,Friendly,Yaoundé,Cameroon,FALSE
 2020-10-10,Cape Verde,Guinea,1,2,Friendly,Faro-Loulé,Portugal,TRUE
 2020-10-10,Costa Rica,Panama,0,1,Friendly,San José,Costa Rica,FALSE
 2020-10-10,Honduras,Nicaragua,1,1,Friendly,Comayagua,Honduras,FALSE
@@ -41752,6 +41751,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2020-10-12,Ghana,Qatar,5,1,Friendly,Aksu,Turkey,TRUE
 2020-10-12,Togo,Sudan,1,1,Friendly,Tunis,Tunisia,TRUE
 2020-10-12,United Arab Emirates,Uzbekistan,1,2,Friendly,Dubai,United Arab Emirates,FALSE
+2020-10-13,Cameroon,South Sudan,0,0,Friendly,Yaoundé,Cameroon,FALSE
 2020-10-13,Germany,Switzerland,3,3,UEFA Nations League,Cologne,Germany,FALSE
 2020-10-13,Ukraine,Spain,1,0,UEFA Nations League,Kiev,Ukraine,FALSE
 2020-10-13,Azerbaijan,Cyprus,0,0,UEFA Nations League,Elbasan,Albania,TRUE
@@ -41861,6 +41861,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2020-11-16,Jordan,Syria,1,0,Friendly,Sharjah,United Arab Emirates,TRUE
 2020-11-16,United Arab Emirates,Bahrain,1,0,Friendly,Dubai,United Arab Emirates,FALSE
 2020-11-16,United States,Panama,6,2,Friendly,Wiener Neustadt,Austria,TRUE
+2020-11-16,Basque Country,Costa Rica,2,1,Friendly,Eibar,Spain,FALSE
 2020-11-17,Croatia,Portugal,2,3,UEFA Nations League,Split,Croatia,FALSE
 2020-11-17,France,Sweden,4,2,UEFA Nations League,Paris,France,FALSE
 2020-11-17,Spain,Germany,6,0,UEFA Nations League,Seville,Spain,FALSE
@@ -42169,7 +42170,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2021-06-04,Maldives,Syria,0,4,FIFA World Cup qualification,Sharjah,United Arab Emirates,TRUE
 2021-06-04,Antigua and Barbuda,Grenada,1,0,FIFA World Cup qualification,North Sound,Antigua and Barbuda,FALSE
 2021-06-04,Suriname,Bermuda,6,0,FIFA World Cup qualification,Paramaribo,Suriname,FALSE
-2021-06-04,Guatemala,St Vincent and the Grenadines,10,0,FIFA World Cup qualification,Guatemala City,Guatemala,FALSE
+2021-06-04,Guatemala,Saint Vincent and the Grenadines,10,0,FIFA World Cup qualification,Guatemala City,Guatemala,FALSE
 2021-06-04,Dominican Republic,Barbados,1,1,FIFA World Cup qualification,Santo Domingo,Dominican Republic,FALSE
 2021-06-04,Nicaragua,Belize,3,0,FIFA World Cup qualification,Managua,Nicaragua,FALSE
 2021-06-04,Saint Kitts and Nevis,Guyana,3,0,FIFA World Cup qualification,Basseterre,Saint Kitts and Nevis,FALSE
@@ -42238,7 +42239,7 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2021-06-08,El Salvador,Antigua and Barbuda,3,0,FIFA World Cup qualification,San Salvador,El Salvador,FALSE
 2021-06-08,Canada,Suriname,4,0,FIFA World Cup qualification,Bridgeview,United States,TRUE
 2021-06-08,Bermuda,Cayman Islands,1,1,FIFA World Cup qualification,Bradenton,United States,TRUE
-2021-06-08,St Vincent and the Grenadines,Cuba,0,1,FIFA World Cup qualification,St George's,Grenada,TRUE
+2021-06-08,Saint Vincent and the Grenadines,Cuba,0,1,FIFA World Cup qualification,St George's,Grenada,TRUE
 2021-06-08,Curaçao,Guatemala,0,0,FIFA World Cup qualification,Willemstad,Curaçao,FALSE
 2021-06-08,Barbados,Dominica,1,1,FIFA World Cup qualification,Santo Domingo,Dominican Republic,TRUE
 2021-06-08,Panama,Dominican Republic,3,0,FIFA World Cup qualification,Panama City,Panama,FALSE
@@ -42336,37 +42337,70 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2021-06-19,Spain,Poland,1,1,UEFA Euro,Seville,Spain,FALSE
 2021-06-19,Hungary,France,1,1,UEFA Euro,Budapest,Hungary,FALSE
 2021-06-19,Germany,Portugal,4,2,UEFA Euro,Munich,Germany,FALSE
+2021-06-19,Libya,Sudan,0,1,FIFA Arab Cup qualification,Doha,Qatar,TRUE
 2021-06-20,Italy,Wales,1,0,UEFA Euro,Rome,Italy,FALSE
 2021-06-20,Switzerland,Turkey,3,1,UEFA Euro,Baku,Azerbaijan,TRUE
 2021-06-20,Venezuela,Ecuador,2,2,Copa América,Rio de Janeiro,Brazil,TRUE
 2021-06-20,Colombia,Peru,1,2,Copa América,Goiânia,Brazil,TRUE
+2021-06-20,Oman,Somalia,2,1,FIFA Arab Cup qualification,Doha,Qatar,TRUE
 2021-06-21,Denmark,Russia,4,1,UEFA Euro,Copenhagen,Denmark,FALSE
 2021-06-21,Finland,Belgium,0,2,UEFA Euro,Saint Petersburg,Russia,TRUE
 2021-06-21,Netherlands,North Macedonia,3,0,UEFA Euro,Amsterdam,Netherlands,FALSE
 2021-06-21,Ukraine,Austria,0,1,UEFA Euro,Bucharest,Romania,TRUE
 2021-06-21,Uruguay,Chile,1,1,Copa América,Cuiaba,Brazil,TRUE
 2021-06-21,Argentina,Paraguay,1,0,Copa América,Brasilia,Brazil,TRUE
+2021-06-21,Jordan,South Sudan,3,0,FIFA Arab Cup qualification,Doha,Qatar,TRUE
 2021-06-22,Scotland,Croatia,1,3,UEFA Euro,Glasgow,Scotland,FALSE
 2021-06-22,England,Czech Republic,1,0,UEFA Euro,London,England,FALSE
+2021-06-22,Mauritania,Yemen,2,0,FIFA Arab Cup qualification,Doha,Qatar,TRUE
 2021-06-23,Spain,Slovakia,5,0,UEFA Euro,Seville,Spain,FALSE
 2021-06-23,Sweden,Poland,3,2,UEFA Euro,Saint Petersburg,Russia,TRUE
 2021-06-23,Germany,Hungary,2,2,UEFA Euro,Munich,Germany,FALSE
 2021-06-23,Portugal,France,2,2,UEFA Euro,Budapest,Hungary,TRUE
 2021-06-23,Ecuador,Peru,2,2,Copa América,Goiânia,Brazil,TRUE
 2021-06-23,Brazil,Colombia,2,1,Copa América,Rio de Janeiro,Brazil,FALSE
-2021-06-24,Bolivia,Uruguay,NA,NA,Copa América,Cuiaba,Brazil,TRUE
-2021-06-24,Chile,Paraguay,NA,NA,Copa América,Brasilia,Brazil,TRUE
-2021-06-26,Wales,Denmark,0,0,UEFA Euro,Amsterdam,Netherlands,TRUE
-2021-06-27,Italy,Austria,0,0,UEFA Euro,London,England,TRUE
-2021-06-27,Netherlands,Czech Republic,0,0,UEFA Euro,Seville,Spain,TRUE
-2021-06-28,Belgium,Portugal,0,0,UEFA Euro,Budapest,Hungary,TRUE
-2021-06-28,Croatia,Spain,0,0,UEFA Euro,Copenhagen,Denmark,TRUE
-2021-06-29,France,Switzerland,0,0,UEFA Euro,Bucharest,Romania,TRUE
-2021-06-29,England,Germany,0,0,UEFA Euro,Glasgow,Scotland,TRUE
-2021-06-30,Sweden,Ukraine,0,0,UEFA Euro,London,England,TRUE
-2021-06-27,Brazil,Ecuador,NA,NA,Copa América,Goiânia,Brazil,FALSE
-2021-06-27,Venezuela,Peru,NA,NA,Copa América,Brasilia,Brazil,TRUE
-2021-06-27,El Salvador,Guatemala,NA,NA,Friendly,NA,NA,NA
-2021-06-28,Argentina,Bolivia,NA,NA,Copa América,Cuiaba,Brazil,TRUE
-2021-06-28,Uruguay,Paraguay,NA,NA,Copa América,Rio de Janeiro,Brazil,TRUE
-2021-06-30,Mexico,Panama,NA,NA,Friendly,Nashville,United States,TRUE
+2021-06-23,Lebanon,Djibouti,1,0,FIFA Arab Cup qualification,Doha,Qatar,TRUE
+2021-06-24,Bolivia,Uruguay,0,2,Copa América,Cuiaba,Brazil,TRUE
+2021-06-24,Chile,Paraguay,0,2,Copa América,Brasilia,Brazil,TRUE
+2021-06-24,Palestine,Comoros,5,1,FIFA Arab Cup qualification,Doha,Qatar,TRUE
+2021-06-25,Bahrain,Kuwait,2,0,FIFA Arab Cup qualification,Doha,Qatar,TRUE
+2021-06-26,Italy,Austria,2,1,UEFA Euro,London,England,TRUE
+2021-06-26,Wales,Denmark,0,4,UEFA Euro,Amsterdam,Netherlands,TRUE
+2021-06-27,Netherlands,Czech Republic,0,2,UEFA Euro,Budapest,Hungary,TRUE
+2021-06-27,Belgium,Portugal,1,0,UEFA Euro,Sevilla,Spain,TRUE
+2021-06-27,Brazil,Ecuador,1,1,Copa América,Goiânia,Brazil,FALSE
+2021-06-27,Venezuela,Peru,0,1,Copa América,Brasilia,Brazil,TRUE
+2021-06-27,El Salvador,Guatemala,0,0,Friendly,Los Angeles,United States,TRUE
+2021-06-28,Croatia,Spain,3,5,UEFA Euro,Copenhagen,Denmark,TRUE
+2021-06-28,France,Switzerland,3,3,UEFA Euro,Bucharest,Romania,TRUE
+2021-06-28,Argentina,Bolivia,4,1,Copa América,Cuiaba,Brazil,TRUE
+2021-06-28,Uruguay,Paraguay,1,0,Copa América,Rio de Janeiro,Brazil,TRUE
+2021-06-29,England,Germany,2,0,UEFA Euro,London,England,FALSE
+2021-06-29,Sweden,Ukraine,1,2,UEFA Euro,Glasgow,Scotland,TRUE
+2021-06-30,Mexico,Panama,3,0,Friendly,Nashville,United States,TRUE
+2021-07-02,Switzerland,Spain,1,1,UEFA Euro,Saint Petersburg,Russia,TRUE
+2021-07-02,Belgium,Italy,1,2,UEFA Euro,Munich,Germany,TRUE
+2021-07-02,Peru,Paraguay,3,3,Copa América,Goiânia,Brazil,TRUE
+2021-07-02,Brazil,Chile,1,0,Copa América,Rio de Janeiro,Brazil,FALSE
+2021-07-02,Haiti,Saint Vincent and the Grenadines,6,1,Gold Cup qualification,Fort Lauderdale,United States,TRUE
+2021-07-02,Trinidad and Tobago,Montserrat,6,1,Gold Cup qualification,Fort Lauderdale,United States,TRUE
+2021-07-02,Bermuda,Barbados,8,1,Gold Cup qualification,Fort Lauderdale,United States,TRUE
+2021-07-03,Czech Republic,Denmark,1,2,UEFA Euro,Baku,Azerbaijan,TRUE
+2021-07-03,Ukraine,England,0,4,UEFA Euro,Rome,Italy,TRUE
+2021-07-03,Mexico,Nigeria,4,0,Friendly,Nashville,United States,TRUE
+2021-07-03,Uruguay,Colombia,0,0,Copa América,Brasília,Brazil,TRUE
+2021-07-03,Argentina,Ecuador,3,0,Copa América,Goiânia,Brazil,FALSE
+2021-07-03,Guatemala,Guyana,4,0,Gold Cup qualification,Fort Lauderdale,United States,TRUE
+2021-07-03,Cuba,French Guiana,0,3,Gold Cup qualification,Fort Lauderdale,United States,TRUE
+2021-07-03,Guadeloupe,Bahamas,2,0,Gold Cup qualification,Fort Lauderdale,United States,TRUE
+2021-07-04,Qatar,El Salvador,1,0,Friendly,Pula,Croatia,TRUE
+2021-07-05,Brazil,Peru,NA,NA,Copa América,Rio de Janeiro,Brazil,FALSE
+2021-07-06,Argentina,Colombia,NA,NA,Copa América,Brasília,Brazil,TRUE
+2021-07-06,Italy,Spain,NA,NA,UEFA Euro,London,England,TRUE
+2021-07-06,Haiti,Bermuda,NA,NA,Gold Cup qualification,Fort Lauderdale,United States,TRUE
+2021-07-06,Guatemala,Guadeloupe,8,1,Gold Cup qualification,Fort Lauderdale,United States,TRUE
+2021-07-06,Trinidad and Tobago,French Guiana,8,1,Gold Cup qualification,Fort Lauderdale,United States,TRUE
+2021-07-07,England,Denmark,NA,NA,UEFA Euro,London,England,FALSE
+2021-07-09,NA,NA,NA,NA,Copa América,Brasília,Brazil,NA
+2021-07-10,NA,NA,NA,NA,Copa América,Rio de Janeiro,Brazil,NA
+2021-07-11,NA,NA,NA,NA,UEFA Euro,London,England,NA

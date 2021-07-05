@@ -12,8 +12,8 @@ from requests_html import HTMLSession
 # from datetime import datetime
 
 import time
-from selenium import webdriver
-from selenium.webdriver.support.select import Select
+# from selenium import webdriver
+# from selenium.webdriver.support.select import Select
 from time import sleep
 
 # for run asyncio in jupyter / https://github.com/jupyter/notebook/issues/3397
@@ -187,9 +187,21 @@ dates_dataset = create_dates_dataset(dates_from_page)
 assert len(dates_from_page) == dates_dataset.shape[0], \
         "Number of dates in html and dataset don't match"
 
+def get_rank_page_again(url, date_id):
+    data_json = None
+    url = f'{url}?locale=en&dateId={date_id}'
+    while data_json == None:
+        response = r.get(url)
+        data_json = response.json()['rankings']
+    # print(type(data_json))
+    # print(data_json)
+    return data_json
+
 async def get_rank_page(date_id, session):
     async with session.get(f'{fifa_url}?locale=en&dateId={date_id}') as response:
         page = await response.text()
+        if "null" in page or len(json.loads(page)['rankings']) == 0:
+            page = get_rank_page_again(fifa_url, date_id)
         if response.status == 200:
             return {'page': page, 'id': date_id}
         else:
@@ -203,9 +215,18 @@ def scrapy_rank_table(page, date):
     # rows = BeautifulSoup(page, 
     #                       'html.parser', 
     #                       parse_only=SoupStrainer('tbody')).find_all('tr')
-    rows = json.loads(page)['rankings']
-    if rows == None:
-        print("207: date: ", date)
+    # try:
+    # print(type(page))
+    if isinstance(page, list):
+        rows = page
+    else:
+        rows = json.loads(page)['rankings']
+        # if rows == None:
+        #     print(date)
+        #     print(page)
+    # except:
+    #     print(page)
+    #     sys.exit("Error!!!!!")
 
     table = []
     for row in rows:
@@ -247,7 +268,7 @@ async def parse_ranks(pages_df):
             task_parse += [asyncio.create_task(get_rank_page(date_id, session))]
     
         for task in asyncio.as_completed(task_parse):
-            await asyncio.sleep(0.15)
+            # await asyncio.sleep(0.11)
             page = await task
             if not task:
                 continue
@@ -427,7 +448,12 @@ def predict(h_country, a_country, neutral=True):
 while True:
     home_team = input("Home team: ")
     away_team = input("Away team: ")
-    print(predict(home_team, away_team, True))
+    neutral_input = input("Neutral: ")
+    if neutral_input == "y":
+        neutral = True
+    else:
+        neutral = False
+    print(predict(home_team, away_team, neutral))
     cont = input("Do you wanna continue? ")
     if len(cont) == 0 or cont == "no":
         break
